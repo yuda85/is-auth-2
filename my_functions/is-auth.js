@@ -5,18 +5,18 @@ exports.handler = async (event, context) => {
     if (!token) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Token is missing" }),
+        body: JSON.stringify({ error: "Token is missing", event, context }),
       };
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ token }),
+      body: JSON.stringify({ token, event, context }),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal Server Error" }),
+      body: JSON.stringify({ error: "Internal Server Error", event, context }),
     };
   }
 };
