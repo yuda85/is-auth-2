@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/iscar-auth2" # Update this to the path of your Angular app's build output folder
+  publish = "dist/next-app" # Update this to the path of your Angular app's build output folder
 
 
 
