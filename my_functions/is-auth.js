@@ -12,6 +12,7 @@ exports.handler = async (event, context) => {
           initData: {
             redirectUrl: "https://is-auth-next.netlify.app",
             loginMethods: ["OTP", "UP"],
+            appName: "WOW OPA!!",
           },
         }),
       };
@@ -25,6 +26,7 @@ exports.handler = async (event, context) => {
           initData: {
             redirectUrl: "https://is-auth-next.netlify.app",
             loginMethods: ["OTP", "UP"],
+            appName: "WOW OPA!!",
           },
         }),
       };
@@ -37,6 +39,7 @@ exports.handler = async (event, context) => {
         initData: {
           redirectUrl: "https://is-auth-next.netlify.app",
           loginMethods: ["OTP", "UP"],
+          appName: "WOW OPA!!",
         },
       }),
     };
