@@ -6,6 +6,7 @@ import {
   Router,
 } from '@angular/router';
 import { filter } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,13 @@ import { filter } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  token: string | null = null;
+  token: string = '';
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -23,7 +28,9 @@ export class AppComponent {
         console.log(event);
 
         console.log(this.route.snapshot.queryParams['token']);
-        this.token = this.route.snapshot.queryParams['token'];
+        this.token = this.route.snapshot.queryParams['token'] || '';
+
+        this.authService.isAuth(this.token);
       }
     });
 
