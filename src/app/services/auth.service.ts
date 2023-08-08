@@ -22,6 +22,7 @@ export class AuthService {
           const { initData } = err.error;
           const params = new HttpParams({ fromObject: initData });
           const paramString = params.toString();
+          console.log(paramString);
           window.location.replace(
             `https://is-auth-main.netlify.app/login?${paramString}`
           );
