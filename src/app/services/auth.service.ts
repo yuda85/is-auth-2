@@ -13,7 +13,7 @@ export class AuthService {
 
   isAuth(token: string) {
     return this.http
-      .post<any>(`${this.apiUrl}/is-auth`, token)
+      .get<any>(`${this.apiUrl}/is-auth?token=${token}`)
       .subscribe((data) => {
         console.log(data);
       });
