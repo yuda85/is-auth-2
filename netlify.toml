@@ -1,7 +1,10 @@
 [build]
   publish = "dist/next-app" # Update this to the path of your Angular app's build output folder
 
-
+[[redirects]]
+  from = "/my_functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
 
 [[redirects]]
   from = "/*"
