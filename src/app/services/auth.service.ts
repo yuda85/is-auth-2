@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
@@ -19,8 +19,12 @@ export class AuthService {
           console.log(data);
         },
         (err) => {
-          const { initData } = err;
-          window.location.replace('https://is-auth-main.netlify.app/login');
+          const { initData } = err.error;
+          const params = new HttpParams({ fromObject: initData });
+          const paramString = params.toString();
+          window.location.replace(
+            `https://is-auth-main.netlify.app/login?${paramString}`
+          );
         }
       );
   }
