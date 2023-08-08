@@ -7,25 +7,49 @@ exports.handler = async (event, context) => {
     if (!token) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Token is missing", event, context }),
+        body: JSON.stringify({
+          error: "Token is missing",
+          initData: {
+            redirectUrl: "https://is-auth-next.netlify.app",
+            loginMethods: ["OTP", "UP"],
+          },
+        }),
       };
     }
 
     if (token === trueToken) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ token, event, context }),
+        body: JSON.stringify({
+          token,
+          initData: {
+            redirectUrl: "https://is-auth-next.netlify.app",
+            loginMethods: ["OTP", "UP"],
+          },
+        }),
       };
     }
 
     return {
       statusCode: 401,
-      body: JSON.stringify({ error: "token not valid" }),
+      body: JSON.stringify({
+        error: "token not valid",
+        initData: {
+          redirectUrl: "https://is-auth-next.netlify.app",
+          loginMethods: ["OTP", "UP"],
+        },
+      }),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal Server Error", event, context }),
+      body: JSON.stringify({
+        error: "Internal Server Error",
+        initData: {
+          redirectUrl: "https://is-auth-next.netlify.app",
+          loginMethods: ["OTP", "UP"],
+        },
+      }),
     };
   }
 };

@@ -19,6 +19,7 @@ export class AuthService {
           console.log(data);
         },
         (err) => {
+          const { initData } = err;
           window.location.replace('https://is-auth-main.netlify.app/login');
         }
       );
