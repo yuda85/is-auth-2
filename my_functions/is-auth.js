@@ -7,6 +7,9 @@ exports.handler = async (event, context) => {
     if (!token) {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Allow from anywhere
+        },
         body: JSON.stringify({
           error: "Token is missing",
           initData: {
