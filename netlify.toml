@@ -13,5 +13,11 @@
 
 
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+
 [functions]
   directory = "my_functions" # Upd
